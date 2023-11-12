@@ -1,0 +1,113 @@
+
+<main class="d-flex">
+    <div class="vh-100 border-end border-secondary-subtle position-relative">
+        <div class="text-center pt-5 pb-3 border-bottom border-secondary-subtle px-5">
+            <p class="first-part-logo mb-0" style="font-size: 34px; line-height: 17px;">Lumincoin</p>
+            <p class="second-part-logo" style="font-size: 8px;line-height: 11px;">FINANCE</p>
+        </div>
+        <div class="px-4 pt-5 mb-auto main-menu">
+            <ul class="nav nav-pills flex-column">
+                <li class="nav-item">
+                    <a href="/#/main" class="nav-link active" id="menu-main">
+                        <img src="../images/icon-home.svg" class="align-baseline pe-none me-2" alt="Home">
+                        Главная
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#/income-expenses" class="nav-link link-body-emphasis" id="menu-income-expenses">
+                        <img src="../images/icon-money.svg" class="align-baseline pe-none me-2" alt="Money">
+                        Доходы & Расходы
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/#/main" id="menu-category"
+                       class="rounded-top rounded-0 nav-link link-body-emphasis btn-toggle text-center collapsed"
+                       data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
+                        Категории
+                    </a>
+                    <div class="border-primary collapse show rounded-bottom" id="home-collapse">
+                        <ul class="btn-toggle-nav list-unstyled">
+                            <li><a href="/#/income" class="rounded-0 nav-link link-body-emphasis" id="menu-income">Доходы</a>
+                            </li>
+                            <li><a href="/#/expenses" class="rounded-0 nav-link link-body-emphasis">Расходы</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="fixed-bottom position-absolute bottom-0 start-0 end-0">
+            <div class="fw-semibold border-bottom border-secondary-subtle pb-3 px-3">Баланс: <span
+                    class="text-primary ps-2" id="balance"> </span></div>
+            <div class="pt-3 pb-5 px-3" data-bs-toggle="modal" data-bs-target="#logoutModal" id="personData">
+                <span class="d-inline-block lh-1 bg-secondary-subtle rounded-circle">
+                    <div class="nav-link link-body-emphasis"><img src="../images/icon-person-main.png" class="p-3" alt="Person"
+                                                          id="personIcon"></div>
+                </span>
+                <span id="profile-full-name" class="ps-2">Имя Фамилия</span>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="logoutModal" tabindex="-1"
+         aria-labelledby="logoutModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" id="logoutModalLabel">Выход</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Вы уверены, что хотите выйти?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
+                    <a href="/#/logout" class="btn btn-primary">Выйти</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="content-main col-10 mt-5 pt-5 ms-5 ps-3">
+        <h1 class="mb-5 text-color">
+            Главная
+        </h1>
+        <div class="content-buttons d-flex flex-nowrap pb-5 mb-5">
+            <button type="button" id="button-default" class="btn btn-filter btn-outline-secondary px-3 py-2 me-3 active">
+                Сегодня
+            </button>
+            <button type="button" class="btn btn-filter btn-outline-secondary px-3 py-2 me-3">Неделя</button>
+            <button type="button" class="btn btn-filter btn-outline-secondary px-3 py-2 me-3">Месяц</button>
+            <button type="button" class="btn btn-filter btn-outline-secondary px-4 py-2 me-3">Год</button>
+            <button type="button" class="btn btn-filter btn-outline-secondary px-4 py-2 me-3">Все</button>
+            <button type="button" id="button-interval" class="btn btn-filter btn-outline-secondary px-2 py-2 me-3" disabled>
+                Интервал
+            </button>
+            <div class="content-dates d-flex flex-nowrap">
+                <div class="content-date d-flex flex-nowrap">
+                    <label for="with" class="content-date-label fw-bold pt-2 me-3">с</label>
+                    <input type="text" class="content-date-input p-2 form-control me-3" id="with"
+                           placeholder="Дата" autocomplete="off">
+                </div>
+                <div class="content-date d-flex flex-nowrap">
+                    <label for="before" class="content-date-label fw-bold pt-2 me-3">по</label>
+                    <input type="text" class="content-date-input p-2 form-control" id="before" placeholder="Дата" autocomplete="off">
+                </div>
+            </div>
+        </div>
+        <div class="content-diagrams mt-5 d-flex">
+            <div class="content-diagram-profit ms-5 me-5">
+                <h3 class="content-diagram-profit-title text-color text-center">
+                    Доходы
+                </h3>
+                <canvas id="pie-income"></canvas>
+            </div>
+            <div class="content-diagram-cost ms-5">
+                <h3 class="content-diagram-cost-title text-color text-center">
+                    Расходы
+                </h3>
+                <canvas id="pie-expenses"></canvas>
+            </div>
+        </div>
+    </section>
+
+</main>
+
